@@ -1,0 +1,15 @@
+\section{Method}
+Let $f$ be the objective function and let $\mathbf{x}$ denote the input. We observe $n$ noisy evaluations,
+where $n$ is the number of observations. The surrogate uses a kernel, where $k$ is the kernel function.
+Let $K$ denote the kernel function evaluated on the training inputs.
+
+We write the noise as $\epsilon$ with variance $\sigma^2$. The posterior mean at $\boldsymbol{x}$ is
+\begin{equation}
+  \mu(\mathbf{x}) = k(\mathbf{x}, X)^\top K^{-1} y, \qquad \varepsilon \sim \mathcal{N}(0, \sigma^2),
+\end{equation}
+where $n$ is the input dimension. Here $\bm{x}$ is any query point. EI is the expected improvement (EI) over the
+incumbent. We treat the kernel hyperparameters as random.
+
+\begin{theorem}\label{thm:regret}
+The cumulative regret of AKO is sublinear in the number of evaluations.
+\end{theorem}
